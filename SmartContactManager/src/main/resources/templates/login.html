@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" 
+th:replace="base::layout(~{::section})">
+<head>
+<title>Page Title</title>
+<link rel = "stylesheet" th:href="@{/css/login.css}" />
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ 
+ 
+ 
+</head>
+<body>
+ <section >
+    
+<section class="login-block">
+    <div class="container">
+	<div class="row">
+		<div class="col-md-4 offset-md mt-4 ">
+		
+		<div class="my-cards mt-4 ">
+		
+	
+		
+		    <h2 class="text-center">Login Now</h2>
+		    <form class="login-form" th:action="@{/dologin}" method="post">
+		    
+		    <div th:if="${param.error}" class="alert alert-danger">
+	Invalid username and password
+	
+	</div>
+			
+	<div th:if="${param.logout}" class="alert alert-success">
+	You have been logged out
+	
+	</div>
+		    
+  <div class="form-group">
+    <label for="exampleInputEmail1" class="text-uppercase">Username</label>
+    <input type="text" name = "username" class="form-control" placeholder="">
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+    <input type="password" name = "password"  class="form-control" placeholder="">
+  </div>
+  
+ <div class="form-check ">
+    <label class="form-check-label">
+        <input type="checkbox" class="form-check-input">
+        <small>Remember Me</small>
+    </label>
+    
+    
+    <div class="row justify-content-end">
+<div id="register-link" class = " col-12 col-md-auto  text-right">
+
+<a href="/signup" class = "text-secondary">Register Here</a>
+
+
+  <div class="containers">
+                    <a href="" th:href="@{/forgot}">Forgot Password</a>
+                   </div>
+
+
+
+
+
+</div>
+
+</div>
+  
+    
+    
+</div>
+
+
+
+
+
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-auto text-center">
+        <button type="submit" class="btn   ">Submit</button>
+    </div>
+</div>
+
+</form>
+
+		</div>
+		</div>
+		
+		<div id="carouselExampleIndicators" class="col-md-8 banner-sec carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators carousel slide">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    
+  
+  
+  </div>
+  <div class="carousel-inner">
+  
+  
+   <div class="carousel-item">
+      <img class="d-block img-fluid" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="banner-text">
+            <h2 style="color: black;">Contact Management</h2>
+            <p style="color: black; font-weight: bold;">Contact management is the process of collecting, storing, organizing, and managing contact data. This data typically includes information about customers, leads, and other business connections. Efficient contact management enables personalized communication, better customer service, and improved sales opportunities.</p>
+        </div>	
+    </div>
+    </div>
+  
+  
+  
+  
+  
+   <div class="carousel-item active">
+      <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="banner-text">
+            <h2 style="color:black;">Scalability issues</h2>
+            <p style="color: black; font-weight: bold;">Even the best contact management software can fail to accommodate the needs of large organizations that have multiple teams spread across different locations. They don't have the basic functionalities needed for proper collaboration, data scrutiny, or even data protection for businesses that operate on a large scale. MNCs tend to have complex procedures and compliance requirements that need workflows in place, which contact management systems can't achieve alone.</p>
+        </div>	
+  </div>
+    </div>
+   
+  </div>
+  
+   
+  <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"   style="right: auto; left: 300px; transform: translateX(-50%);">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" style="left: auto; right: 200px; transform: translateX(50%);">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>   
+    </div>
+    
+		
+	
+	
+	
+	
+	
+	
+	
+	
+</div>
+</div>
+</section>
+</section>
+
+</body>
+</html>

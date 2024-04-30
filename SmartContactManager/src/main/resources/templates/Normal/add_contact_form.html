@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" 
+th:replace="normal/base::layout(~{::section})">
+<head>
+
+  <link rel = "stylesheet" th:href="@{/css/addcontact.css}" />
+
+<title>Page Title</title>
+</head>
+<body>
+ <section>
+ 
+ 
+ 
+ <div class="card max-5"> 
+ <div class = "card-body">
+ <h1 class = "text-center">Add Contact</h1>
+ <div class="container-fluid mt-1">
+ <div class="row">
+ <div class="col-md-8 offset-md-2">
+ 
+<form novalidate="novalidate" action="#" th:object="${contact}" enctype="multipart/form-data"
+ method="post" th:action="@{/user/process-contact}" class="mt-2">
+ <div class="custom-file mt-2">
+ <input type="file" name="image">
+     <div class="loti">
+        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+        <dotlottie-player src="https://lottie.host/3d2e7f39-8d21-465d-9cf8-5b02151f650a/8NzkW08VOi.json" background="transparent" speed="1" style="width: 200px; height: 200px" direction="1" playMode="normal" loop autoplay></dotlottie-player>
+    </div> 
+    
+</div>
+
+ 
+ 
+ 
+<!-- First name th:value="${contact.name}" -->
+
+<div class="input-group mt-5">
+<div class="input-group-prepend">
+<div class="input-group-text">
+
+<i class="fa fa-plus" style="line-height: inherit;" ></i>
+
+
+</div>
+</div>
+
+<input type="text" id="firstName" name = "name"
+
+th:classappend="${#fields.hasErrors('name') ? 'is-invalid' : ''}"
+ placeholder="Enter First Name Here" class ="form-control"/>
+ <div th:each= "e : ${#fields.errors('name')} " th:text="${e}"  id="validationServer03Feedback" class="invalid-feedback"></div>
+</div>
+
+<!-- Nik name  th:value="${contact.nikName}"-->
+
+<div class="input-group mt-3">
+<div class="input-group-prepend" >
+<div class="input-group-text">
+
+<i class="fas fa-user-alt" style="line-height: inherit;" ></i>
+
+
+</div>
+</div>
+
+<input type="text" id="nikName" name = "nikName" 
+
+th:classappend="${#fields.hasErrors('nikName') ? 'is-invalid' : ''}"
+placeholder="Enter Last Name Here" class ="form-control"/>
+<div th:each= "e : ${#fields.errors('nikName')} " th:text="${e}"  id="validationServer03Feedback" class="invalid-feedback"></div>
+</div>
+
+
+
+
+<!-- Phone  name  th:value="${contact.phone}"  -->
+
+<div class="input-group mt-3">
+<div class="input-group-prepend" >
+<div class="input-group-text">
+
+<i class="fa fa-phone-alt" style="line-height: inherit;" ></i>
+
+
+</div>
+</div>
+
+<input type="number" id="phone" name = "phone" 
+ 
+th:classappend="${#fields.hasErrors('phone') ? 'is-invalid' : ''}"
+placeholder="Enter Phone Number Here" class ="form-control"/>
+<div th:each= "e : ${#fields.errors('phone')} " th:text="${e}"  id="validationServer03Feedback" class="invalid-feedback"></div>
+</div>
+
+
+<!-- Email  name  th:value="${contact.email}"-->
+
+<div class="input-group mt-3">
+<div class="input-group-prepend" >
+<div class="input-group-text">
+
+@
+
+
+</div>
+</div>
+
+<input type="email" id="email" name = "email"
+
+th:classappend="${#fields.hasErrors('email') ? 'is-invalid' : ''}"
+ placeholder="Enter Email Address Here" class ="form-control"/>
+<div th:each= "e : ${#fields.errors('email')} " th:text="${e}"  id="validationServer03Feedback" class="invalid-feedback"></div>
+</div>
+
+
+
+
+<!-- Work  name th:value="${contact.work}"-->
+
+<div class="input-group mt-3">
+<div class="input-group-prepend" >
+<div class="input-group-text">
+
+
+<i class="fa fa-briefcase" style="line-height: inherit;" ></i>
+
+</div>
+</div>
+
+<input type="text" id="work" name = "work" 
+
+th:classappend="${#fields.hasErrors('work') ? 'is-invalid' : ''}"
+placeholder="Enter Work Type Here" class ="form-control"/>
+<div th:each= "e : ${#fields.errors('work')} " th:text="${e}"  id="validationServer03Feedback" class="invalid-feedback"></div>
+</div>
+
+
+
+<!-- Contact Description th:text ="${contact.description}"-->
+
+<div class="form-group mt-3">
+
+<textarea placeholder="Enter Contact Description" name="description" 
+
+th:classappend="${#fields.hasErrors('description') ? 'is-invalid' : ''}"
+id="description" class="form-control"  rows="10"></textarea>
+<div th:each= "e : ${#fields.errors('description')} " th:text="${e}"  id="validationServer03Feedback" class="invalid-feedback"></div>
+</div>
+
+<!-- Contact Image-->
+
+
+    
+
+<div class="container text-center">
+
+
+    <button type="submit" class="btn btn-outline ">Save Contact</button>
+    <button type="reset" class="btn btn-outline ">Reset</button>
+</div>
+
+
+</form>
+
+
+ </div>
+ </div>
+ 
+ 
+ </div>
+ 
+ </div>
+ 
+ </div>
+ 
+ <script src="https://cdn.tiny.cloud/1/iwh1c67xdps4r4nkpc9nns67hcokb96quyxrdo7g76q60qqm/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+    mergetags_list: [
+      { value: 'First.Name', title: 'First Name' },
+      { value: 'Email', title: 'Email' },
+    ],
+    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+  });
+</script>
+ 
+ 
+ 
+   <script type="text/javascript">
+  
+     $(document).ready(() =>{
+     $(".item").removeClass("active");
+     $("#add-link").addClass("active");
+
+     });
+
+  
+  
+  
+  </script>
+  
+ 
+ </section>
+
+
+
+</body>
+</html>

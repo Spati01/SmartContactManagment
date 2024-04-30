@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+ th:replace="~{base::layout(~{::section})}">
+
+<head>
+    <title>Sign Up</title>
+</head>
+
+<body>
+
+    <section>
+        <div class="containers">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+
+                    <div class="my-card mt-1">
+                   
+                  <!--   
+                    <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert " role="alert">
+                         <p class="text-center" th:text="${session.message.content}"></p>
+                           <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+                          
+                           </div>   --> 
+ 
+  <!--  <div th:if="${session.msg}">
+    <div class="alert alert-info text-center" role="alert" th:text="${session.msg}">
+</div>
+    <th:block  th:text="${@sessionService.removeMessageFromSession()}"></th:block>
+    </div>   -->
+
+
+<div th:if="${session.msg}">
+    <div class="alert alert-primary  text-center" role="alert" th:text="${session.msg.content}"></div>
+    <!-- Assuming you want to remove the message after displaying it -->
+    <th:block th:text="${@sessionService.removeMessageFromSession()}"></th:block>
+</div>
+
+
+
+                        <div class="containers text-center">
+                            <h1 class="text-center">Sign Up</h1>
+                            <img alt="" th:src="@{/img/sign-up.png}">
+                        </div>
+
+                        <form novalidate  action="" th:action="@{/do_register}" method="post" th:object="${user}">
+
+                            <div class="form-group">
+                                <label for="name_field" class="form-label">Your Name</label>
+                                <input type="text" name="name"  th:value="${user.name}" placeholder="Enter here"  
+                                th:classappend="${#fields.hasErrors('name')? 'is-invalid' : ''}"   
+                                 class="form-control " id="name_field"
+                                    aria-describedby="emailHelp" required />
+                            
+                              <div class="invalid-feedback" th:each="e : ${#fields.errors('name')}" th:text="${e}">
+                               
+                                </div>
+                            
+                            </div>
+                            
+                            
+                            
+                            
+                            
+                            
+
+                            <div class="form-group">
+                                <label for="email_field" class="form-label">Your Email</label>
+                                <input type="email" name="email" th:classappend="${#fields.hasErrors('email') ? 'is-invalid' : ''}"       th:value="${user.email}" placeholder="Enter here" class="form-control" id="email_field"
+                                    aria-describedby="emailHelp" required />
+                          
+                              <div class = "invalid-feedback" th:each="e : ${#fields.errors('email')}" th:text="${e}"></div>
+                          
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password_field" class="form-label">Your Password</label>
+                                <input type="password" name="password" placeholder="Enter here" class="form-control"
+        th:classappend="${#fields.hasErrors('password') ? 'is-invalid' : ''}" id="password_field" aria-describedby="emailHelp" required />
+                          
+                          
+                          <div class="invalid-feedback"  th:each = "e : ${#fields.errors('password')}" th:text="${e}"></div>
+                          
+                            </div>
+
+                            <div class="form-group">
+                                <label for="about_field" class="form-label">About You</label>
+                                <textarea name="about" th:text="${user.about}"  th:classappend="${#fields.hasErrors('about') ? 'is-invalid' : ''}" placeholder="Enter Something about yourself" rows="6"
+                                    class="form-control"></textarea>
+                            
+                            <div class = "invalid-feedback" th:each = "e : ${#fields.errors('about')}" th:text = "${e}"></div>
+                            
+                            </div>
+                             
+                             <!-- Terms and Condition agreement     
+                             th:classappend="${#fields.hasErrors('enabled') ? 'is-invalid' : ''}" -->
+                             
+                            <div class="form-group form-check d-flex justify-content-center ">
+                                <input type="checkbox" name="agreement" 
+                                 th:classappend="${#fields.hasErrors('agreement') ? 'is-invalid' : ''}" 
+                                class="form-check-input" id="agreement" />
+                                <label for="agreement" class="form-check-label"> Accept terms and condition</label>
+                              <div class = "invalid-feedback" th:each="e : ${#fields.errors('agreement')}" th:text="${e}"></div>      
+                            </div>
+                            
+                            
+                            
+                            
+                            
+
+                            <div class="containers text-center">
+                                <button type="submit" class="btn">
+                                    Submit
+                                </button>
+
+                                <button type="reset" class="btn">
+                                    Reset
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

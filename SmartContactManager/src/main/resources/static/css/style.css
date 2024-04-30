@@ -1,0 +1,57 @@
+body{
+	
+	background: linear-gradient(0deg, purple, pink 40%)
+	}
+	
+h1 {
+  background: linear-gradient(to bottom, #1E1E1E, #A22FCE 25%, #FFB6C1 50%, #A22FCE 75%, #1E1E1E);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+	
+	.bg-color{
+	
+	background: #009688 !important;
+	
+	}
+	.banner{
+	width: 100%;
+	height:93vh;
+	background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)) ,url(../img/contact.jpg);
+	background-size:cover;
+	color:rgb(128, 255, 255);
+	
+	}
+	
+	.body{
+  background-color: #e2e2e2;
+	
+
+	}
+	
+.my-card{
+
+	padding: 20px;
+	background:#00ffff;
+	border-radius: 15px 50px 30px 5px;
+	 box-shadow: 10px 10px lightblue; 
+	 
+}	
+.form-group .form-check-label{
+	
+	 margin-left: 10px; 
+	
+}
+
+/* This is Login CSS */
+
+
+
+
+
+
+
+
+
