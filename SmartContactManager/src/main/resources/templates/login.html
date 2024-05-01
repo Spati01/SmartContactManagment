@@ -38,6 +38,14 @@ th:replace="base::layout(~{::section})">
 	You have been logged out
 	
 	</div>
+		   
+	<div th:if="${param.change}" class="alert alert-success">
+	<p th:text="${param.change}"></p>
+	
+	</div>
+		   	   
+		   
+		   
 		    
   <div class="form-group">
     <label for="exampleInputEmail1" class="text-uppercase">Username</label>

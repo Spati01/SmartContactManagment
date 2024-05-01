@@ -97,7 +97,7 @@ public class HomeController {
 		}catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("user", user);
-			session.setAttribute("msg", new Message("Something went wrong: " + e.getMessage(), "alert-danger"));
+			session.setAttribute("msg", new Message("Something went wrong!: This email address is already exists" , "alert-danger"));
 	        return "signup";
 			
 		}

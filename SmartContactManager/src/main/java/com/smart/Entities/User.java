@@ -43,11 +43,11 @@ public class User {
 	@Column(length = 500)
 	private String about;
 	
-  @Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", role=" + role
-				+ ", enabled=" + agreement + ", imgUrl=" + imgUrl + ", about=" + about + ", contact=" + contact + "]";
-	}
+//  @Override
+//	public String toString() {
+//		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", role=" + role
+//				+ ", enabled=" + agreement + ", imgUrl=" + imgUrl + ", about=" + about + ", contact=" + contact + "]";
+//	}
 @OneToMany(cascade = CascadeType.ALL,mappedBy = "user", orphanRemoval = true )
   private List<Contact> contact = new ArrayList<>();
 	
@@ -101,9 +101,9 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public boolean isEnabled() {
-		return agreement;
-	}
+//	public boolean isEnabled() {
+//		return agreement;
+//	}
 	
 	public Boolean getAgreement() {
 		return agreement;
